@@ -9,11 +9,17 @@ class Calculate:
     def multiply(self):
         return self.num1*self.num2
     def divide(self):
-        return self.num1/self.num2
+        return self.num1/self.num2    
+def take_input():
+    num1=int(input("Enter the first number: "))
+    num2=int(input("Enter the first number: "))
+    return [num1,num2]
+
+
     
 def main():
-   while(True):
-       
+   
+   
        print("-----------------------------------------")
        print("0.Exit")
        print("1.Addition")
@@ -22,29 +28,18 @@ def main():
        print("4.Division")
        print("WHAT OPERATION YOU GONNA DO: ")
        op=int(input())
+       user_input=take_input()
+       obj=Calculate(user_input[0], 
+       user_input[1])
        if op==1:
-           a=int(input("Enter the first number: "))
-           b=int(input("Enter the second number: "))
-           obj=Calculate(a,b)
            print("The sum is: ",obj.add())
-       elif op==2:
-           a=int(input("Enter the first number: "))
-           b=int(input("Enter the second number: "))
-           obj=Calculate(a,b)
+       elif op==2:         
            print("The difference is: ",obj.subtract())
        elif op==3:
-           a=int(input("Enter the first number: "))
-           b=int(input("Enter the second number: "))
-           obj=Calculate(a,b)
            print("The product is: ",obj.multiply())
        elif op==4:
-           a=int(input("Enter the first number: "))
-           b=int(input("Enter the second number: "))
-           obj=Calculate(a,b)
            print("The quotient is: ",obj.divide())
-       else:
-           print("Thankyou for using the calculator")
-           break
+
        
 main()
        
