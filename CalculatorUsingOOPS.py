@@ -15,13 +15,8 @@ def take_input():
     num2=int(input("Enter the first number: "))
     return [num1,num2]
 
-
-    
 def main():
-   
-   
        print("-----------------------------------------")
-
        print("1.Addition")
        print("2.Subtraction")
        print("3.Multiplication")
