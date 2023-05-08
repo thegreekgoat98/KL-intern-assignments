@@ -1,3 +1,4 @@
+#pylint --- 9.17/10.0
 """This program calculates Area, Perimeter of different shapes"""
 import math
 class Shape:
