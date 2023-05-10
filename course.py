@@ -6,7 +6,7 @@ class Student(BaseModel):
     name:str
     course:str
 
-course_details={}   #{course:roll}
+course_details={}   
 
 @app.get("/")    
 def root():
