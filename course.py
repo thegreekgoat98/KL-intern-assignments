@@ -18,8 +18,11 @@ def show():
 
 @app.post("/add/{roll}")   
 def add(roll: int, student:Student):
-   course_details[roll] = student.dict()
-   return course_details
+   if roll in course_details:
+       return {"Error":"Cannot add roll, already enrolled in a course"}
+   else:
+       course_details[roll] = student.dict()
+       return {"Success":"Added student in the course successfully"}
     
 @app.put("/update/{roll}")
 def update(roll:int,student: Student):
@@ -36,10 +39,3 @@ def delete(roll:int):
     else:
         del course_details[roll]
         return {"Success":"Deleted the student from the course"}
-
-
-
-
-
-
-
