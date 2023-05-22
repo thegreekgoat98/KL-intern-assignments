@@ -2,11 +2,13 @@ from core.db.mongodb import Mongo
 from schema.models import Student,email
 from constants.aggregationPipelines import agg_code
 
+from json2html import *
+
 import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-# from schema.models import email
+
 
 obj=Mongo()
 
@@ -30,11 +32,14 @@ class handler:
             return {"Error":"Cannot add student, already enrolled in a course"}
     
     def update(self,roll:int,student: Student):
-        if list(obj.myDB.find({"roll":roll})) == []:
-            return {"Error":"Student not enrolled in any course"}
+        if list(obj.myDB.find({"roll":student.roll})) == []:
+            if list(obj.myDB.find({"roll":roll})) == []:
+                return {"Error":"Student not enrolled in any course"}
+            else:
+                obj.myDB.update_one({"roll":roll},{"$set":student.dict()})
+                return {"Success":"Updated succesfully"}
         else:
-            obj.myDB.update_one({"roll":roll},{"$set":student.dict()})
-            return {"Success":"Updated succesfully"}
+            return {"Error":"Cannot update to this roll, roll already present"}
     
     def delete(self,roll:int):
         if list(obj.myDB.find({"roll":roll})) == []:
@@ -59,10 +64,17 @@ class handler:
         message["To"] = receiver_email
         message["Subject"] = Email.subject
     
-        body = self.aggregate() #manually added
+        #manually added
+        body = self.aggregate() 
         body=str(body)
+
+        #manually added
+        all_students_list=self.show() 
+        table=json2html.convert(json=all_students_list) #for table
         # Add the body to the email
-        message.attach(MIMEText("The total cost of all courses student have enrolled is: "+body, "plain"))
+        message.attach(MIMEText("The total cost of all courses student have enrolled is: ₹"+body+"\n\n", "plain"))
+        message.attach(MIMEText("\n\nStudent Table: "+table,"html"))
+
 
         try:
         # Create a secure connection to the SMTP server
