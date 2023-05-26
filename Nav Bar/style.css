@@ -1,0 +1,48 @@
+.logo img
+{
+    width: 120px;
+    height: 120px;
+    border-radius: 90%;
+}
+
+li
+{
+    margin: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* .navbar-nav1
+{
+    justify-content: right;
+} */
+
+.dropdown
+{
+    text-align: right;
+}
+
+.content{
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 30vh;
+}
+.content img
+{
+    height: 700px;
+    width: 300px;
+    /* position: absolute;
+    right: 30px;
+    padding-bottom: 330px;
+    align-items: center;
+    display: flex; */
+}
+
+.content h1
+{
+    font-family: 'Source Code Pro', monospace;
+    /* padding-left: 70px;
+    padding-top: 150px; */
+}
