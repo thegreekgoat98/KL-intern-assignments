@@ -46,3 +46,29 @@ li
     /* padding-left: 70px;
     padding-top: 150px; */
 }
+
+.dash h1
+{
+    font-family: 'Source Code Pro', monospace;
+}
+
+.dash{
+        height: 30vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-top: 30vh;
+        padding-right: 30vh;
+}
+
+.cool
+{
+    padding-left: 1200px;
+    padding-bottom: 200px;
+}
+
+/* .btn
+{
+    padding-top: 300px;
+} */
