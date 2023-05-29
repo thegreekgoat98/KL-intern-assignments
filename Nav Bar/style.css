@@ -72,3 +72,34 @@ li
 {
     padding-top: 300px;
 } */
+
+#clock {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+.time
+{
+    text-align: center;
+    padding-top: 10%;
+    padding-right: 20%;
+}
+
+
+.ud h1
+{
+    font-family: 'Source Code Pro', monospace;
+}
+
+.ud{
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 30vh;
+    padding-right: 30vh;
+}
+
